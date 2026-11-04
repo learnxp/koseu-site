@@ -48,19 +48,26 @@ some of the following values are the values I use on my MAMP:
     
     $CFG->adminpw = 'short';  // Make this better
     
-    ...
-    
-    $CFG->context_title = "Chemistry 360";
-    $CFG->lessons = $CFG->dirroot.'/../lessons.json';
-    
-    ... 
-    
-    $CFG->tool_folders = array("admin", "../tools", "../mod");
-    $CFG->install_folder = $CFG->dirroot.'./../mod'; // Tsugi as a store
-    
-    ...
-    
-    $CFG->servicename = 'CEM360';
+
+Shared Site Settings
+--------------------
+
+`tsugi_settings.php` contains the public Koseu identity, theme, tool folders,
+and course catalog settings. Deployment URLs, database credentials, OAuth
+secrets, and other private settings stay in the ignored `tsugi/config.php`.
+
+Include the shared settings immediately before `setup.php` and `lms_lib.php`:
+
+```php
+$tsugi_settings = $CFG->dirroot . '/../tsugi_settings.php';
+if ( file_exists($tsugi_settings) ) {
+    require_once $tsugi_settings;
+}
+```
+
+Koseu uses Tsugi's published course catalog rather than a site-wide lesson
+manifest. The homepage displays published catalog entries; manage listings in
+Tsugi administration. Course lessons belong to their individual courses.
 
 Setting up Login
 ----------------
