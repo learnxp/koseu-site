@@ -1,9 +1,10 @@
 <?php include("top.php");?>
 <?php include("nav.php");?>
 <h2>Privacy Policy</h2>
-<p><b>Note:</b> This privacy policy is provided only as a sample.  You should 
-carefully construct an accurate privacy policy for your particular server.
-This sample policy is neither approved nor vetted - it is just an example.
+<p>
+    <b>Note:</b> This privacy policy is provided only as a sample.  You should
+    carefully construct an accurate privacy policy for your particular server.
+    This sample policy is neither approved nor vetted - it is just an example.
 </p>
 <p>This privacy policy has been compiled to better serve those who are concerned with how their 'Personally Identifiable Information' (PII) is being used online. PII, as described in US privacy law and information security, is information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context. Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect or otherwise handle your Personally Identifiable Information in accordance with our website.</p>
 <p><strong>What personal information do we collect from the people that visit our blog, website or app?</strong></p>
@@ -27,14 +28,16 @@ This sample policy is neither approved nor vetted - it is just an example.
 <p><strong>Advertising</strong></p>
 <p>We do no third-party advertising on this site.</p>
 <p><strong>Google Analytics</strong></p>
-<p>We use Google analytics to track usage and improve the site unless 
-you request not to be tracked using a Do Not Track signal (see below).</p>
+<p>
+    We use Google analytics to track usage and improve the site unless
+    you request not to be tracked using a Do Not Track signal (see below).
+</p>
 <p>Google, as a third-party vendor, uses cookies to support analytics on our site. Users may opt-out of the use of the DART cookie by using the Google-provided opt-out capabilities. If users opt-out of Google Analytics on this site, there is no reduction in functionality of this site.</p>
 <p><strong>How does our site handle Do Not Track signals?</strong></p>
 <p>We honor Do Not Track signals.  When DNT is indicated, we supress the gathering of all internal analytics data and do not use any third-party (Google only) analytics on the pages the user visits.  We never show ads on any page.</p>
 <p><strong>COPPA (Children Online Privacy Protection Act)</strong></p>
 <p>We do not specifically market to children under the age of 13 years old.</p>
-<p><strong>Notifications</strong> </p>
+<p><strong>Notifications</strong></p>
 <p>In order to be in line with Fair Information Practices we will take the following responsive action, should a data breach occur: We will notify you via email</p>
 <p>This needs contact information</p>
 <!-- You need an address and contact information
@@ -46,4 +49,3 @@ United States</code></pre>
 <p>Last edited: 27-Nov-2017</p>
 -->
 <?php include("foot.php"); ?>
-

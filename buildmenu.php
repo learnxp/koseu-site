@@ -10,8 +10,13 @@ function koseuBuildMenu() {
     };
     $set = new \Tsugi\UI\MenuSet();
     $logo = $home . '/branding/ChatGPT%20Image%20Nov%204%2C%202026%2C%2009_05_02%20AM-2.png';
-    $set->setHome('<span class="koseu-logo-frame"><img class="koseu-logo" src="'.$escape($logo).'" alt="Koseu — Learn with purpose"></span>', $home);
-    $placeholder = 'onclick="window.alert(\'Coming soon!\'); return false;"';
+    $set->setHome(
+        '<span class="koseu-logo-frame">'
+            . '<img class="koseu-logo" src="' . $escape($logo) . '" alt="Koseu — Learn with purpose">'
+            . '</span>',
+        $home
+    );
+    $placeholder = 'onclick="window.alert(\'Coming soon please login to join our mailing list to be notified when beta testing starts.\'); return false;"';
     $chevron = ' <span class="koseu-chevron" aria-hidden="true"></span>';
     $set->addLeft('Courses'.$chevron, '#', false, $placeholder);
     $set->addLeft('Categories'.$chevron, '#', false, $placeholder);
@@ -19,7 +24,6 @@ function koseuBuildMenu() {
     $set->addLeft('Resources', '#', false, $placeholder);
 
     if ( \Tsugi\Core\ReqScope::isLoggedInLegacy() ) {
-        $set->addRight('My courses', $tsugi.'/courses');
         $account = new \Tsugi\UI\Menu();
         $account->addLink('Profile', $home.'/profile');
         if ( !empty($CFG->google_map_api_key) ) {
