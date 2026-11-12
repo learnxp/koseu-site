@@ -89,3 +89,75 @@ body:has(#tsugi_main_nav_bar) { padding-top: 96px !important; }
     #tsugi_main_nav_bar .navbar-nav > li > a.koseu-login { display: inline-block; margin: 4px 12px; }
     #tsugi_main_nav_bar .navbar-nav .open .dropdown-menu > li > a { color: #1e1b6b; }
 }
+
+.beta-notice {
+    background:
+        radial-gradient(circle at 8% 120%, #ff7a4555, transparent 32%),
+        linear-gradient(105deg, #1e1b6b 0%, #2c287e 58%, #3d348f 100%);
+    color: #f6f5ff;
+    border-bottom: 4px solid #ff7a45;
+}
+.beta-notice-inner {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+.beta-stamp {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: #ff7a45;
+    color: #241840;
+    font-family: Manrope, Inter, sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    transform: rotate(-8deg);
+    box-shadow: 4px 4px 0 #ffffff33, inset 0 0 0 3px #ffffff55;
+}
+.beta-copy { min-width: 0; flex: 1 1 240px; }
+.beta-title {
+    margin: 0 0 2px;
+    color: #ffc2a8;
+    font-family: Manrope, Inter, sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+.beta-copy p:last-child { margin: 0; font-size: 16px; line-height: 1.45; color: #f6f5ff; }
+.beta-copy a { color: #fff; font-weight: 750; text-decoration: underline; text-underline-offset: 3px; }
+.beta-copy a:hover { color: #ffc2a8; }
+.beta-login {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 20px;
+    border-radius: 24px;
+    background: #ff7a45;
+    color: #241840;
+    font-size: 14px;
+    font-weight: 750;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.beta-login:hover { background: #ff966c; color: #241840; text-decoration: none; }
+@media (max-width: 767px) {
+    .beta-notice-inner {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        align-items: center;
+        column-gap: 14px;
+        row-gap: 12px;
+    }
+    .beta-stamp { width: 56px; height: 56px; font-size: 11px; letter-spacing: .08em; }
+    .beta-copy p:last-child { font-size: 15px; }
+    .beta-login { grid-column: 2; justify-self: start; }
+}

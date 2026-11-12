@@ -16,12 +16,11 @@ function koseuBuildMenu() {
             . '</span>',
         $home
     );
+    $catalog = $tsugi . '/catalog';
     $placeholder = 'onclick="window.alert(\'Coming soon please login to join our mailing list to be notified when beta testing starts.\'); return false;"';
-    $chevron = ' <span class="koseu-chevron" aria-hidden="true"></span>';
-    $set->addLeft('Courses'.$chevron, '#', false, $placeholder);
-    $set->addLeft('Categories'.$chevron, '#', false, $placeholder);
+    $set->addLeft('Courses', $catalog);
+    $set->addLeft('Categories', $catalog);
     $set->addLeft('For Instructors', '#', false, $placeholder);
-    $set->addLeft('Resources', '#', false, $placeholder);
 
     if ( \Tsugi\Core\ReqScope::isLoggedInLegacy() ) {
         $account = new \Tsugi\UI\Menu();
@@ -44,7 +43,7 @@ function koseuBuildMenu() {
         $account->addLink('Log out', $home.'/logout');
         $set->addRight(\Tsugi\UI\Output::avatarMenuTrigger(), $account);
     } else {
-        $set->addRight('Log in', $CFG->getLoginUrl(), false, 'class="koseu-login"');
+        $set->addRight('Log in', $home . '/register.php?to=login', false, 'class="koseu-login"');
     }
     return $set;
 }

@@ -1,18 +1,48 @@
 <?php
+require __DIR__ . '/utm-live.php';
 require 'top.php';
+?>
+<script>
+    (function () {
+      var url = new URL(window.location.href);
+      if (url.searchParams.has('utm') && !url.searchParams.has('utm_source')) {
+        url.searchParams.set('utm_source', url.searchParams.get('utm'));
+        window.history.replaceState({}, '', url);
+      }
+    })();
+</script>
+<?php
 require 'nav.php';
 $courses = $PDOX ? \Tsugi\Controllers\Catalog::listingRows() : [];
 $query = trim(is_string($_GET['q'] ?? null) ? $_GET['q'] : '');
 $escape = function ($value) { return htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); };
+$loggedIn = \Tsugi\Core\ReqScope::isLoggedInLegacy();
+$loginUrl = $escape(rtrim($CFG->apphome, '/') . '/register.php?to=login');
 ?>
 <div class="koseu-home">
+    <aside class="beta-notice" aria-label="Beta test notice">
+        <div class="koseu-wrap beta-notice-inner">
+            <span class="beta-stamp" aria-hidden="true">Soon</span>
+            <div class="beta-copy">
+                <p class="beta-title">Beta test coming soon</p>
+<?php if ($loggedIn) { ?>
+                <p>The flag is up. The gate isn’t. This account will be notified when beta testing begins.</p>
+<?php } else { ?>
+                <p>The flag is up. The gate isn’t. <a href="<?= $loginUrl ?>">Log in</a> to create an account and be notified when beta testing begins.</p>
+<?php } ?>
+            </div>
+<?php if (!$loggedIn) { ?>
+            <a class="beta-login" href="<?= $loginUrl ?>">Log in <span aria-hidden="true">→</span></a>
+<?php } ?>
+        </div>
+    </aside>
     <section class="koseu-hero" aria-labelledby="hero-title">
         <div class="koseu-wrap hero-layout">
             <div class="hero-copy">
                 <p class="eyebrow">Learning that takes you places</p>
                 <h1 id="hero-title">Learn skills for a<br>bigger tomorrow.</h1>
                 <p class="hero-lead">Practical learning. Real possibilities.<br>Take your next step, at your own pace.</p>
-                <form class="course-search" action="<?= $escape($R) ?>#learning" method="get" role="search">
+                <form class="course-search" action="<?= $escape($T) ?>catalog" method="get" role="search">
                     <label for="course-query" class="sr-only">Search learning materials</label>
                     <span aria-hidden="true">⌕</span>
                     <input id="course-query" name="q" type="search" placeholder="What do you want to learn?" value="<?= $escape($query) ?>">
@@ -131,7 +161,7 @@ if ($query !== '') { ?>
                 <h2>Have something worth teaching?</h2>
                 <p>Build your own learning experience with the open source Tsugi framework.</p>
             </div>
-            <a class="koseu-button coral" href="https://www.tsugi.org">Discover Tsugi <span aria-hidden="true">↗</span></a>
+            <a class="koseu-button coral" href="#" onclick="window.alert('Coming soon please login to join our mailing list to be notified when beta testing starts.'); return false;">Apply to teach</a>
         </div>
     </section>
 </div>
