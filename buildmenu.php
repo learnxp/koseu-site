@@ -17,12 +17,11 @@ function koseuBuildMenu() {
         $home
     );
     $catalog = $tsugi . '/catalog';
-    $placeholder = 'onclick="window.alert(\'Coming soon please login to join our mailing list to be notified when beta testing starts.\'); return false;"';
     $set->addLeft('Courses', $catalog);
     $set->addLeft('Categories', $catalog);
-    $set->addLeft('For Instructors', '#', false, $placeholder);
 
     if ( \Tsugi\Core\ReqScope::isLoggedInLegacy() ) {
+        $set->addLeft('Instructor', $tsugi.'/settings');
         $account = new \Tsugi\UI\Menu();
         $account->addLink('Profile', $home.'/profile');
         if ( !empty($CFG->google_map_api_key) ) {
@@ -30,9 +29,6 @@ function koseuBuildMenu() {
         }
         if ( !empty($CFG->badge_encrypt_password) ) {
             $account->addLink('Badges', $home.'/badges');
-        }
-        if ( !empty($CFG->providekeys) ) {
-            $account->addLink('LMS integration', $tsugi.'/settings');
         }
         if ( !empty($CFG->google_classroom_secret) ) {
             $account->addLink('Google Classroom', $tsugi.'/gclass/login');
