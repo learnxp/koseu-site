@@ -134,21 +134,6 @@ body:has(#tsugi_main_nav_bar) { padding-top: 96px !important; }
 .beta-copy p:last-child { margin: 0; font-size: 16px; line-height: 1.45; color: #f6f5ff; }
 .beta-copy a { color: #fff; font-weight: 750; text-decoration: underline; text-underline-offset: 3px; }
 .beta-copy a:hover { color: #ffc2a8; }
-.beta-login {
-    flex: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 11px 20px;
-    border-radius: 24px;
-    background: #ff7a45;
-    color: #241840;
-    font-size: 14px;
-    font-weight: 750;
-    text-decoration: none;
-    white-space: nowrap;
-}
-.beta-login:hover { background: #ff966c; color: #241840; text-decoration: none; }
 @media (max-width: 767px) {
     .beta-notice-inner {
         display: grid;
@@ -159,5 +144,4 @@ body:has(#tsugi_main_nav_bar) { padding-top: 96px !important; }
     }
     .beta-stamp { width: 56px; height: 56px; font-size: 11px; letter-spacing: .08em; }
     .beta-copy p:last-child { font-size: 15px; }
-    .beta-login { grid-column: 2; justify-self: start; }
 }

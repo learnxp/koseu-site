@@ -31,9 +31,6 @@ $loginUrl = $escape(rtrim($CFG->apphome, '/') . '/register.php?to=login');
                 <p>The flag is up. The gate isn’t. <a href="<?= $loginUrl ?>">Log in</a> to create an account and be notified when beta testing begins.</p>
 <?php } ?>
             </div>
-<?php if (!$loggedIn) { ?>
-            <a class="beta-login" href="<?= $loginUrl ?>">Log in <span aria-hidden="true">→</span></a>
-<?php } ?>
         </div>
     </aside>
     <section class="koseu-hero" aria-labelledby="hero-title">
