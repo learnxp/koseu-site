@@ -21,7 +21,7 @@ function koseuBuildMenu() {
     $set->addLeft('Categories', $catalog);
 
     if ( \Tsugi\Core\ReqScope::isLoggedInLegacy() ) {
-        $set->addLeft('Instructor', $tsugi.'/settings');
+        $set->addLeft('Instructor', $tsugi.'/instructor');
         $account = new \Tsugi\UI\Menu();
         $account->addLink('Profile', $home.'/profile');
         if ( !empty($CFG->google_map_api_key) ) {
