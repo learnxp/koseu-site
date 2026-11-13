@@ -29,6 +29,7 @@ $CFG->theme = array(
 $CFG->lessons = false;
 $CFG->show_courses_widget = true;
 $CFG->show_course_catalog = true;
+$CFG->allow_course_create = true;
 $CFG->privacy_url = $CFG->apphome . '/privacy';
 
 $CFG->tool_folders = array('admin', '../tools', '../mod');
